@@ -55,7 +55,11 @@ app.get("/users/:id", (req, res) => {
 // POST
 
 app.post("/addUser", (req, res) => {
-  console.log(req.body);
+  console.log("DATA Received", req.body);
+  // Server return Message
+  const user = req.body;
+  user.id = Math.round(Math.random() * 10);
+  res.send(user);
 });
 
 app.listen(4200, () => console.log("Listening to port 4200"));
